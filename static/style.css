@@ -1,114 +1,85 @@
-      body {
-          font-family: "Courier New", Courier, monospace;
-          background: #121212;
-          color: #00e0e0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          margin: 0;
-      }
+body {
+    font-family: "Courier New", Courier, monospace;
+    background: #121212;
+    color: #00e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-      #app {
-          width: 600px;
-          height: 80vh;
-          background: #121212;
-          border: 1px solid #00e0e0;
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-      }
+#app {
+    width: 600px;
+    height: 80vh;
+    background: #121212;
+    border: 1px solid #00e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
 
-      header {
-          padding: 8px;
-          text-align: center;
-          font-size: 16px;
-          font-weight: bold;
-          border-bottom: 1px solid #00e0e0;
-      }
+header {
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #00e0e0;
+}
 
-      #chat {
-          flex: 1;
-          padding: 10px;
-          overflow-y: auto;
-      }
+#chat {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
 
-      .msg {
-          margin: 6px 0;
-          max-width: 80%;
-          padding: 4px 6px;
-          word-wrap: break-word;
-          background: transparent;
-          color: #00e0e0;
-      }
+.msg {
+    margin: 6px 0;
+    max-width: 80%;
+    padding: 4px 6px;
+    word-wrap: break-word;
+    background: transparent;
+    color: #00e0e0;
+}
 
-      .me {
-          margin-left: auto;
-          text-align: right;
-          color: #ffb347;
-          /* amber for your messages */
-      }
+.me {
+    margin-left: auto;
+    text-align: right;
+    color: #ffb347;
+    /* amber for your messages */
+}
 
-      .other {
-          margin-right: auto;
-      }
+.other {
+    margin-right: auto;
+}
 
-      .time {
-          font-size: 10px;
-          opacity: 0.6;
-          margin-top: 2px;
-          text-align: right;
-      }
+.time {
+    font-size: 10px;
+    opacity: 0.6;
+    margin-top: 2px;
+    text-align: right;
+}
 
-      #input-bar {
-          display: flex;
-          border-top: 1px solid #00e0e0;
-      }
+#input-bar {
+    display: flex;
+    border-top: 1px solid #00e0e0;
+}
 
-      #message {
-          flex: 1;
-          border: none;
-          padding: 10px;
-          font-size: 14px;
-          outline: none;
-          background: transparent;
-          color: #00e0e0;
-      }
+#message {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+    color: #00e0e0;
+}
 
-      #send {
-          background: transparent;
-          border: none;
-          color: #00e0e0;
-          padding: 0 15px;
-          cursor: pointer;
-          font-weight: bold;
-      }
-
-      #login {
-          display: flex;
-          padding: 8px;
-          border-bottom: 1px solid #00e0e0;
-      }
-
-      #username {
-          flex: 1;
-          padding: 6px;
-          background: transparent;
-          color: #00e0e0;
-          border: 1px solid #00e0e0;
-          outline: none;
-      }
-
-      #join {
-          margin-left: 6px;
-          background: transparent;
-          color: #00e0e0;
-          border: 1px solid #00e0e0;
-          padding: 0 10px;
-          cursor: pointer;
-      }
-
-      #join:hover {
-          color: #ffb347;
-          border-color: #ffb347;
-      }
+#send {
+    background: transparent;
+    border: none;
+    color: #00e0e0;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+}

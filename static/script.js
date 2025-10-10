@@ -1,31 +1,56 @@
+const adjectives = [
+  "Quick",
+  "Silent",
+  "Brave",
+  "Wise",
+  "Swift",
+  "Clever",
+  "Bold",
+];
+const nouns = ["Fox", "Wolf", "Eagle", "Bear", "Hawk", "Owl", "Tiger"];
 let username = "";
+let ws = null;
 
-document.getElementById("join").onclick = async () => {
-  username = document.getElementById("username").value.trim();
-  if (!username) return alert("Enter username");
+function generateUsername() {
+  const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${adj}${noun}${Math.floor(Math.random() * 1000)}`;
+}
+
+async function initializeChat() {
+  username = generateUsername();
   await fetch("/users/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username }),
-  });
-  loadMessages();
-};
+  }).catch((err) => console.error("Error creating user:", err));
 
-document.getElementById("send").onclick = sendMessage;
-document.getElementById("message").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage();
-});
+  // Initialize WebSocket connection
+  ws = new WebSocket(`ws://${window.location.host}/ws`);
+  ws.onopen = () => console.log("WebSocket connected");
+  ws.onmessage = (event) => {
+    const msg = JSON.parse(event.data);
+    const chat = document.getElementById("chat");
+    const div = document.createElement("div");
+    div.classList.add("msg");
+    div.classList.add(msg.username === username ? "me" : "other");
+    div.innerHTML = `<div>${msg.username}: ${msg.content}</div>
+                        <div class="time">${new Date().toLocaleTimeString()}</div>`;
+    chat.appendChild(div);
+    chat.scrollTop = chat.scrollHeight;
+  };
+  ws.onclose = () => console.log("WebSocket disconnected");
+  ws.onerror = (err) => console.error("WebSocket error:", err);
+
+  // Load initial messages
+  loadMessages();
+}
 
 async function sendMessage() {
   const content = document.getElementById("message").value.trim();
-  if (!content || !username) return;
-  await fetch("/messages/", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, content }),
-  });
+  if (!content || !username || !ws || ws.readyState !== WebSocket.OPEN) return;
+  ws.send(JSON.stringify({ username, content }));
   document.getElementById("message").value = "";
-  loadMessages();
 }
 
 async function loadMessages() {
@@ -46,4 +71,9 @@ async function loadMessages() {
   chat.scrollTop = chat.scrollHeight;
 }
 
-setInterval(loadMessages, 2000);
+document.getElementById("send").onclick = sendMessage;
+document.getElementById("message").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+window.onload = initializeChat;
