@@ -2,4 +2,4 @@ psycopg2-binary
 python-dotenv
 fastapi
 uvicorn[standard]
-passlib[bcrypt]
+pydantic

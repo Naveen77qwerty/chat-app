@@ -1,13 +1,38 @@
 const adjectives = [
-  "Quick",
-  "Silent",
-  "Brave",
-  "Wise",
-  "Swift",
-  "Clever",
-  "Bold",
+  "Sneaky",
+  "Sleepy",
+  "Hungry",
+  "Sassy",
+  "Confused",
+  "Cheeky",
+  "Dizzy",
+  "Lazy",
+  "Spicy",
+  "Grumpy",
+  "Broke",
+  "Funky",
+  "Salty",
+  "Zesty",
+  "Wobbly",
 ];
-const nouns = ["Fox", "Wolf", "Eagle", "Bear", "Hawk", "Owl", "Tiger"];
+const nouns = [
+  "Penguin",
+  "Panda",
+  "Banana",
+  "Potato",
+  "Unicorn",
+  "Donkey",
+  "Noodle",
+  "Taco",
+  "Sloth",
+  "Muffin",
+  "Pickle",
+  "Toaster",
+  "Duck",
+  "Catfish",
+  "Koala",
+];
+
 let username = "";
 let ws = null;
 

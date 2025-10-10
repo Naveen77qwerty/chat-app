@@ -99,7 +99,6 @@ async def get_messages():
                 FROM messages m
                 JOIN users u ON m.user_id = u.id
                 ORDER BY m.created_at DESC
-                LIMIT 20
             """)
             rows = cur.fetchall()
         return [{"username": r[0], "content": r[1], "created_at": r[2]} for r in rows]
