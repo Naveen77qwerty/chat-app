@@ -90,4 +90,5 @@ CockroachDB is a distributed SQL database designed for scalability, resilience, 
 - [Arham Garg](https://github.com/arhamgarg)
 - [A Adithyan](https://github.com/Cirutuu)
 - [S S Naveen](https://github.com/Naveen77qwerty)
+- [Vishnu Girish](https://github.com/Vishnu-Girish)
 - [H Dharshan](https://github.com/Dharshan2208)

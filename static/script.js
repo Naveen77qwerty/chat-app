@@ -51,7 +51,7 @@ async function initializeChat() {
   }).catch((err) => console.error("Error creating user:", err));
 
   // Initialize WebSocket connection
-  ws = new WebSocket(`wss://${window.location.host}/ws`);
+  ws = new WebSocket(`ws://${window.location.host}/ws`);
   ws.onopen = () => console.log("WebSocket connected");
   ws.onmessage = (event) => {
     const msg = JSON.parse(event.data);
